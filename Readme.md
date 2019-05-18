@@ -10,7 +10,9 @@ https://blog.docker.com/2017/02/docker-secrets-management/
 * HashiCorp Vault: enterprise solution for storing secret--- paid
 * keyWhiz -- paid
 
-### Injection Attacks - sending malicious code via forms search etc.
+### Injection Attacks - sending malicious code via forms search etc to manipulate access the database both sql and noSql. 
+prevention is same as xss.
+Where as in xss the focus is mainly on client/end user, like redirecting stealing user data, downloading virus etc
 
 ## xss cross-site-scripting attack prevention
 * validator, express-validator  for validating inbound data
@@ -24,6 +26,8 @@ It restricts browser from downloading content from untrusted sources.
 * helmet.xssFilter,helmet.contentSecurityPolicy({define policy here}), and report when attack occur are cool features
 * On client side and server also: https://www.npmjs.com/package/dompurify
 * On client: https://github.com/yahoo/xss-filters
+* Reactjs: https://medium.com/javascript-security/avoiding-xss-in-react-is-still-hard-d2b5c7ad9412
+
 
 
 
