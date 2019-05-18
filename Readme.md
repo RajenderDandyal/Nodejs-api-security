@@ -45,7 +45,7 @@ This is done with the help of helmet middleware as app.use(helmet.frameGuard:{ac
 * Last ensure https encryption connection instead of http
 
 ## Securing Cookies:
-*  if working with express-session package
+*  if working with express-session package <br>
 app.use(session({
   secret:'aabraKaDabra',<br>
   resave:false,<br>
