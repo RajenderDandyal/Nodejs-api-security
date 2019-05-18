@@ -31,15 +31,20 @@ It restricts browser from downloading content from untrusted sources.
 
 
 ## csrf cross site request frojery attack; prevention with react
+* Get requests are stored in browser history, and can accidentally be invoked again.
+* For transactions and data manipulation we should always use post, put, delete requests
 * So in react we prevent the default form action of sending data.
 and we manually send data as ajax request with cookie or token.
 * So to prevent csrf attack with react, we should use another token say for ex. 'xsrf-token'.
 * Now before sending data to backend, we should make a call to backend to get the 'xsrf-token', then save that token in redux store for further use, and at backend we should add another middleware, on routes which handle formData, to check for that 'xsrf-token' validity.
 * Routes that handle form submit post req, we will have 2 middleware, one for general-purpose auth, second for 'xsrf-token' and its validation
 * Also avoid sending 'xsrf-token' inside cookie, as attacker can also access this cookie :) and store it inside redux-store.
+* Another solution is express-session + csrf package token middleware
+* To prevent iframe miss use of our website we should set X-Frame-Option-deny.
+This is done with the help of helmet middleware as app.use(helmet.frameGuard:{action:'deny'})
+* Last ensure https encryption connection instead of http
 
-
-
+## Securing Cookies
 
 
 
