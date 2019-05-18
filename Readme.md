@@ -44,7 +44,8 @@ and we manually send data as ajax request with cookie or token.
 This is done with the help of helmet middleware as app.use(helmet.frameGuard:{action:'deny'})
 * Last ensure https encryption connection instead of http
 
-## Securing Cookies: if working with express-session package
+## Securing Cookies:
+*  if working with express-session package
 app.use(session({
   secret:'aabraKaDabra',<br>
   resave:false,<br>
