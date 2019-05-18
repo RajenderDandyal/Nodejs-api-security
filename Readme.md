@@ -10,7 +10,7 @@ https://blog.docker.com/2017/02/docker-secrets-management/
 * HashiCorp Vault: enterprise solution for storing secret--- paid
 * keyWhiz -- paid
 
-### Injection Attacks - sending malicious code via forms search etc to manipulate access the database both sql and noSql. 
+### Injection Attacks - sending malicious code via forms search etc to manipulate, access the database both sql and noSql. 
 prevention is same as xss.
 Where as in xss the focus is mainly on client/end user, like redirecting stealing user data, downloading virus etc
 
@@ -44,7 +44,24 @@ and we manually send data as ajax request with cookie or token.
 This is done with the help of helmet middleware as app.use(helmet.frameGuard:{action:'deny'})
 * Last ensure https encryption connection instead of http
 
-## Securing Cookies
+## Securing Cookies: if working with express-session package
+app.use(session({
+  secret:'aabraKaDabra',<br>
+  resave:false,<br>
+  saveUninitialized:true,<br>
+  cookie:{<br>
+    secure: app.get('env') === 'development' ? false:true,<br>
+    httpOnly: true,<br>
+    domain: app.get('env') === 'development' ? 'localhost':'yourdomain.com',<br>
+    maxAge:60*60*60*60,<br>
+    sameSite:true<br>
+  },<br>
+  name:'mySecureCookie'<br>
+}))<br>
+* That's the max-security for session cookies.
+* Cookies+jwt auth here security options are same ad above see https://expressjs.com/en/api.html#res.cookie
+* jwt auth: now we dont use cookies we use Auth-headers to send token.
+
 
 
 
