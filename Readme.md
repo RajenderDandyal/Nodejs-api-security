@@ -17,6 +17,7 @@ Where as in xss the focus is mainly on client/end user, like redirecting stealin
 ## xss cross-site-scripting attack prevention
 * validator, express-validator  for validating inbound data
 * express-sanitizer for sanitation
+* app.use(bodyParser.urlencoded({extended:false})); to prevent miss use of get request.
 * chrome also have built-in xss-auditor that tries to sanitize the input data, so while testing sanitation use firefox
 * inbound data, coming from client should be sanitize before storing to db
 * outbound data, data from db, before sending to client should be sanitize too. To prevent persistence xss attack.
