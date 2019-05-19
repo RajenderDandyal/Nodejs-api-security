@@ -43,6 +43,7 @@ and we manually send data as ajax request with cookie or token.
 * To prevent iframe miss use of our website we should set X-Frame-Option-deny.
 This is done with the help of helmet middleware as app.use(helmet.frameGuard:{action:'deny'})
 * Last ensure https encryption connection instead of http
+* https://github.com/expressjs/csurf
 
 ## Securing Cookies:
 *  if working with express-session package <br>
@@ -63,8 +64,18 @@ app.use(session({
 * Cookies+jwt auth here security options are same ad above see https://expressjs.com/en/api.html#res.cookie
 * jwt auth: now we dont use cookies we use Auth-headers to send token.
 
+## npm packages vulnerabilities
+* npm audit and go to additional resource link to learn about vulnerability
+* npm audit fix to upgrade the versions of high vulnerable packages
+* npm outdated to check the current and latest version of installed packages
+* npm audit fix --f will update all packages
+* Best tool is --- snyk -- npm i snyk -g, snyk test, snyk wizard
+* Snyk provides comprehensive detail and remedies to fix them
 
-
+## Brut-force, denial of service-DOS, distributed denial of service-DDOS
+* aws cloudflare cdn network is designed to prevent servers from those millions of requests to take down the server, or to get access to server with trying millions of username and password combinations
+* akamai-prolexic is another service to prevent ddos attacks, while sitting in front of app
+* rate-limiting--- prevent ddos attack at the server at the app level say ex 10 req/sec from a given ip
 
 
 
