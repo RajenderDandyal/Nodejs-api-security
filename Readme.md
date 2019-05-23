@@ -33,6 +33,12 @@ It restricts browser from downloading content from untrusted sources.
 ## csrf cross site request frojery attack; prevention with react
 * Get requests are stored in browser history, and can accidentally be invoked again.
 * For transactions and data manipulation we should always use post, put, delete requests
+* csrf protection using axios
+// `xsrfCookieName` is the name of the cookie to use as a value for xsrf token
+  xsrfCookieName: 'XSRF-TOKEN', // default
+
+  // `xsrfHeaderName` is the name of the http header that carries the xsrf token value
+  xsrfHeaderName: 'X-XSRF-TOKEN', // default
 * So in react we prevent the default form action of sending data.
 and we manually send data as ajax request with cookie or token.
 * So to prevent csrf attack with react, we should use another token say for ex. 'xsrf-token'.
